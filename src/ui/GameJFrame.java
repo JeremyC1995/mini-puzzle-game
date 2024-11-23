@@ -4,13 +4,13 @@ import javax.swing.*;
 
 public class GameJFrame extends JFrame {
     public GameJFrame() {
-        //init
         super("Puzzle Game");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(603, 680);
-        setAlwaysOnTop(true);
-        setLocationRelativeTo(null);
+        initJFrame();
+        initJMenuBar();
+        setVisible(true);
+    }
 
+    private void initJMenuBar() {
         // Create the menu bar
         JMenuBar menuBar = new JMenuBar();
 
@@ -37,7 +37,12 @@ public class GameJFrame extends JFrame {
 
         // Set the menu bar for the frame
         setJMenuBar(menuBar);
+    }
 
-        setVisible(true);
+    private void initJFrame() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(603, 680);
+        setAlwaysOnTop(true);
+        setLocationRelativeTo(null);
     }
 }
