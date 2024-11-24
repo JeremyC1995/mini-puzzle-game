@@ -1,13 +1,27 @@
 package ui;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GameJFrame extends JFrame {
     public GameJFrame() {
         super("Puzzle Game");
         initJFrame();
         initJMenuBar();
+        initImage();
         setVisible(true);
+    }
+
+    private void initImage() {
+        List<Integer> indices = randomIndices();
+        for (int i = 0; i < 16; i++) {
+            ImageIcon image = new ImageIcon("image\\animal\\animal3\\" + indices.get(i) + ".jpg");
+            JLabel label = new JLabel(image);
+            label.setBounds(105 * (i % 4)+83, 105 * (i / 4)+134, 105, 105);
+            this.getContentPane().add(label);
+        }
     }
 
     private void initJMenuBar() {
@@ -44,5 +58,16 @@ public class GameJFrame extends JFrame {
         setSize(603, 680);
         setAlwaysOnTop(true);
         setLocationRelativeTo(null);
+
+        setLayout(null);
+    }
+
+    private List<Integer> randomIndices() {
+        List<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < 16; i++) {
+            indices.add(i);
+        }
+        Collections.shuffle(indices);
+        return indices;
     }
 }
